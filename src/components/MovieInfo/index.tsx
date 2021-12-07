@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // Components
 import Thumb from "../Thumb";
@@ -12,8 +11,14 @@ import NoImage from "../../images/no_image.jpg";
 
 // Styles
 import { Wrapper, Content, Text } from "./MovieInfo.styles";
+import { MovieState } from "../../hooks/useMovieFetch";
 
-const MovieInfo = ({ movie }) => (
+type Props = {
+	movie: MovieState,
+	
+}
+
+const MovieInfo: React.FC<Props> = ({ movie }) => (
 	<Wrapper backdrop={movie.backdrop_path}>
 		<Content>
 			<Thumb
@@ -23,7 +28,6 @@ const MovieInfo = ({ movie }) => (
 						: NoImage
 				}
 				clickable={false}
-				alt={movie.title}
 			/>
 			<Text>
 				<h1>{movie.title}</h1>
@@ -41,29 +45,10 @@ const MovieInfo = ({ movie }) => (
 							<p key={director.credit_id}>{director.name}</p>
 						))}
 					</div>
-
-					<div className="genres">
-						{movie.genres.map((genre) => (
-							<p key={genre.id}>{genre.name}</p>
-						))}
-					</div>
-					{/* <div className="casting">
-						{movie.actors.map((elem) => (
-							<p key={elem.id}>{elem.name}</p>
-						))}
-					</div> */}
-					{/* <div className="credits">
-                    <p>
-						{movie.author_details.name}</p>
-					</div> */}
 				</div>
 			</Text>
 		</Content>
 	</Wrapper>
 );
-
-MovieInfo.propTypes = {
-	movie: PropTypes.object,
-};
 
 export default MovieInfo;

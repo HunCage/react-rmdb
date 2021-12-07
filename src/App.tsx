@@ -1,19 +1,19 @@
 import React from "react";
 
 /* Routing */
+// @ts-ignore
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 /* Global Style */
 import { GlobalStyle } from "./GlobalStyle";
 
 /* Components */
-import Header from "./components/Header/index.js";
+import Header from "./components/Header/index";
 import Home from "./components/Home";
 import Movie from "./components/Movie";
 import NotFound from "./components/NotFound";
 
-const App = () => (
-
+const App: React.FC = () => (
 		<Router>
 			<Header />
 			<Routes>
