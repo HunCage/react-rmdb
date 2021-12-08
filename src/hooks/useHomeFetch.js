@@ -49,7 +49,7 @@ export const useHomeFetch = () => {
 				return;
 			}
 		}
-		console.log("Grabbing from API");
+		// console.log("Grabbing from API");
 		setState(initialState);
 		fetchMovies(1, searchTerm);
 	}, [searchTerm]);
